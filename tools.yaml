@@ -1,0 +1,26 @@
+services:
+  angular:
+    build:
+      context: ./builds/angular/
+      # dockerfile: /.
+    command: bash
+    working_dir: /app
+    volumes:
+      - ./src:/app
+
+  nestjs:
+    build:
+      context: ./builds/nestjs/
+      # dockerfile: /.
+    command: bash
+    working_dir: /app
+    volumes:
+      - ./src:/app
+
+  git:
+    build:
+      context: ./builds/git/
+    command: git
+    volumes:
+      - ./src:/home/tool
+    env_file: ./locals/.env
