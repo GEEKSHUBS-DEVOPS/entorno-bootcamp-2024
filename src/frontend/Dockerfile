@@ -3,6 +3,7 @@ FROM node as faseBuild
 RUN npm install -g --silent @angular/cli
 COPY . /app
 WORKDIR /app
+RUN npm install
 RUN ng build
 
 # stage 2 DESPLEGAR UN SERVIDOR WEB PARA SERVIR EL DIST
